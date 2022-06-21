@@ -4,8 +4,12 @@ int employeeHrs = 0;
 int employeeWagePerDay = 0;
 int employeeWagePerMonth = 0;
 int maxWorkingDaysInMonth = 20;
-for (int i = 1; i <= maxWorkingDaysInMonth; i++)
+int maxWorkingHrsInMonth = 100;
+int totalEmployeeHrs = 0;
+int totalWorkingDays = 0;
+while (totalEmployeeHrs < maxWorkingHrsInMonth && totalWorkingDays < maxWorkingDaysInMonth)
 {
+            totalWorkingDays++;
 Random rnd = new Random();
 int num = rnd.Next(0, 3);
     switch (num)
@@ -20,8 +24,11 @@ int num = rnd.Next(0, 3);
             employeeHrs = 0;
             break;
     }
-employeeWagePerDay = employeeHrs * employeeRatePerHr;
-Console.WriteLine("employeeWagePerDay : " + employeeWagePerDay);
+    totalEmployeeHrs += employeeHrs;
+    Console.WriteLine("employeeHours : " + totalEmployeeHrs);
+    Console.WriteLine("Day : " + totalWorkingDays);
+    employeeWagePerDay = employeeHrs * employeeRatePerHr;
+    Console.WriteLine("employeeWagePerDay : " + employeeWagePerDay);
     employeeWagePerMonth += employeeWagePerDay;
 }
     Console.WriteLine("employeeWagePerMonth : " + employeeWagePerMonth); 
